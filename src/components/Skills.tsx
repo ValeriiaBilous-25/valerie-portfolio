@@ -21,10 +21,11 @@ const designSkills = [
 const tools = [
   "Xcode",
   "Android Studio",
+  "GitHub",
   "Figma",
-  "Adobe Creative Suite",
-  "Sketch",
-  "Squarespace",
+  "Notion",
+  "Slack",
+  "Trello",
 ];
 
 const SkillGroup = ({ title, skills }: { title: string; skills: string[] }) => (

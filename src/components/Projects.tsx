@@ -1,34 +1,53 @@
+// Projects.tsx
 import ProjectCard from "./ProjectCard";
+import flow90 from "@/assets/projects/flow90.png";
+import musea from "@/assets/projects/musea.png";
 import lunari from "@/assets/projects/lunari.png";
-import artApp from "@/assets/projects/art-app.png";
 import mindTrek from "@/assets/projects/mindTrek.png";
-import { Link } from "react-router-dom";
 
-
-const projects = [
+const bavLabsProjects = [
   {
-    title: "Lunari — Dream Interpreter",
-    description: "An AI-powered Android app for logging and interpreting dreams. Users can analyze, visualize, and explore their subconscious with personalized insights and rich imagery. Full CRUD functionality and cloud storage via Firebase.",
-    techStack: ["Android", "Kotlin", "Jetpack Compose", "MVVM", "Firebase", "OpenAI API", "Unsplash API", "Retrofit"],
-    githubUrl: "https://github.com/ValeriiaBilous-25/LunariDreamAIApp",
-    platform: "Android" as const,
-    image: lunari,
+    title: "Flow90 — Deep Focus Timer",
+    description:
+      "A focus timer app for deep work sessions. Built with a small independent developer team (BAV Labs) — from UX/UI concept to App Store release.",
+    techStack: ["iOS", "SwiftUI", "Xcode"],
+    platform: "iOS" as const,
+    image: flow90,
+    links: [
+      { type: "appstore" as const, url: "https://apps.apple.com/de/app/flow90/id6778360123?l=en-GB" },
+      { type: "website" as const, url: "https://bav-labs.github.io/flow90/" },
+    ],
   },
   {
-    title: "Art App — The Met Gallery",
-    description: "A collaborative mobile app showcasing The Met's collection, allowing users to browse artworks, view details, and explore curated pieces. Built as a team project, emphasizing clean UI, responsive design, and real API integration.",
-    techStack: ["Android", "Kotlin", "Jetpack Compose", "MVVM", "REST API", "Team Collaboration", "Git"],
+    title: "Musea — Art & Culture App",
+    description:
+      "An app for exploring art and cultural collections, built with the BAV Labs team. Focus on clean UI and real API integration.",
+    techStack: ["Android", "Kotlin", "Jetpack Compose", "REST API"],
     platform: "Android" as const,
-    image: artApp,
-    caseStudyUrl: "/case-studies/art-app",
+    status: "In testing",
+    image: musea,
+    links: [{ type: "website" as const, url: "https://bav-labs.github.io/musea/" }],
   },
+];
+
+const personalProjects = [
   {
     title: "MindTrek — Mindful Journaling",
-    description: "An iOS app for mindful journaling, helping users capture emotions, memories, and reflections. Features include emotion-based entries, calendar browsing, and map visualization of personal experiences.",
-    techStack: ["iOS", "SwiftUI", "Xcode", "MapKit", "CoreLocation", "MVVM", "Local Storage", "Firebase"],
-    githubUrl: "https://github.com/ValeriiaBilous-25/MindTrek",
+    description:
+      "An iOS app for mindful journaling — capturing emotions, memories, and reflections, with calendar browsing and map visualization.",
+    techStack: ["iOS", "SwiftUI", "MapKit", "MVVM", "Firebase"],
     platform: "iOS" as const,
     image: mindTrek,
+    links: [{ type: "github" as const, url: "https://github.com/valeriest-e/MindTrek" }],
+  },
+  {
+    title: "Lunari — Dream Interpreter",
+    description:
+      "An Android app for logging, analyzing, and visualizing dreams, with cloud storage and personalized insights.",
+    techStack: ["Android", "Kotlin", "Firebase"],
+    platform: "Android" as const,
+    image: lunari,
+    links: [{ type: "github" as const, url: "https://github.com/valeriest-e/LunariDreamAIApp" }],
   },
 ];
 
@@ -39,36 +58,23 @@ const Projects = () => {
         <p className="section-title">// App Development</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Mobile Projects</h2>
         <p className="text-muted-foreground mb-12 max-w-2xl">
-          Student projects demonstrating real-world skills in iOS and Android development, 
-          clean architecture, API integration, and user-centered design.
+          Apps I've built and shipped — as part of an independent developer
+          team and on my own.
         </p>
-        
-       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-  {projects.map((project) => {
-    const link = project.caseStudyUrl || project.githubUrl;
 
-    if (!link) {
-      return <ProjectCard key={project.title} {...project} />;
-    }
+        <p className="font-mono text-sm text-muted-foreground mb-4">BAV Labs (team)</p>
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {bavLabsProjects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </div>
 
-    const isExternal = link.startsWith("http");
-
-    return isExternal ? (
-      <a
-        key={project.title}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ProjectCard {...project} isClickable />
-      </a>
-    ) : (
-      <Link key={project.title} to={link}>
-        <ProjectCard {...project} isClickable />
-      </Link>
-    );
-  })}
-</div>
+        <p className="font-mono text-sm text-muted-foreground mb-4">Personal projects</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {personalProjects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </div>
       </div>
     </section>
   );

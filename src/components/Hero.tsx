@@ -8,45 +8,53 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-[70vh] flex flex-col justify-center py-20">
-      <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-
-        {/* TEXT */}
+    <section className="min-h-[80vh] flex flex-col justify-center py-24">
+      <div className="container grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-10 items-center">
         <div className="flex flex-col justify-center">
-          <p className="font-mono text-sm text-muted-foreground mb-2 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <div
+            className="inline-flex items-center gap-2 self-start mb-6 px-3 py-1.5 border-2 border-foreground font-mono text-xs animate-fade-in"
+            style={{ animationDelay: "0.05s" }}
+          >
+            <span className="w-2 h-2 rounded-full bg-green-500" />
+            available_for_hire: true
+          </div>
+
+          <p
+            className="font-mono text-sm text-muted-foreground mb-2 animate-fade-in"
+            style={{ animationDelay: "0.1s" }}
+          >
             Hello, I'm
           </p>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Valeriia Bilous
+          <h1
+            className="text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.95] font-bold mb-6 animate-fade-in"
+            style={{ animationDelay: "0.15s" }}
+          >
+            Valeriia
+            <br />
+            Bilous
           </h1>
 
-          {/* PHOTO mobile */}
-          <div className="block md:hidden mb-6 animate-fade-in" style={{ animationDelay: "0.25s" }}>
-            <img
-              src={avatar}
-              alt="Valeriia Bilous"
-              className="w-64 h-64 md:w-80 md:h-80 object-cover border-2 border-foreground"
-            />
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <span className="brutal-tag">App Developer</span>
-            <span className="brutal-tag">UX/UI Designer</span>
+          <div className="flex flex-wrap gap-2 mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <span className="brutal-tag">iOS &amp; Android Developer</span>
+            <span className="brutal-tag">UX/UI Background</span>
             <span className="brutal-tag">Berlin</span>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            iOS & Android Developer with experience in UX/UI design and social media marketing. 
-            I build apps that look good and work even better.
+          <p
+            className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in"
+            style={{ animationDelay: "0.25s" }}
+          >
+            Mobile app developer with a UX/UI design background. I ship apps
+            end to end — from interface concept to published product.
           </p>
 
-          <div className="flex gap-4 mt-8 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          <div className="flex gap-4 mt-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <button
               onClick={() => scrollToSection("projects")}
               className="inline-flex items-center gap-2 px-6 py-3 border-2 border-foreground bg-foreground text-background font-mono text-sm hover:bg-transparent hover:text-foreground transition-colors"
             >
-              View Projects →
+              View projects →
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -57,15 +65,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* PHOTO desktop */}
-        <div className="hidden md:flex justify-end animate-fade-in" style={{ animationDelay: "0.6s" }}>
+        <div className="flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: "0.35s" }}>
           <img
             src={avatar}
             alt="Valeriia Bilous"
-            className="w-80 h-80 object-cover border-2 border-foreground"
+            className="w-64 h-64 md:w-80 md:h-80 object-cover border-2 border-foreground"
+            style={{ boxShadow: "var(--shadow-brutal)" }}
           />
         </div>
-
       </div>
     </section>
   );
