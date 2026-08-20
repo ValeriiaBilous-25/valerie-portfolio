@@ -26,8 +26,7 @@ const clientProjects: UXProject[] = [
       "A Squarespace landing page for a beauty studio, focused on clear service presentation and booking flow.",
     image: elektroImg,
     links: [
-      { type: "case-study", url: "/case-studies/landing" },
-      { type: "website", url: "https://www.elektroepil-berlin.de" },
+      { type: "website", url: "https://www.elektroepilberlin.de" },
     ],
   },
   {
